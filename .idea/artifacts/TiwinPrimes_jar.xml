@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="TiwinPrimes:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/TiwinPrimes_jar</output-path>
+    <root id="archive" name="TiwinPrimes.jar">
+      <element id="module-output" name="TiwinPrimes" />
+    </root>
+  </artifact>
+</component>
