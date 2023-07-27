@@ -21,7 +21,6 @@ class TwinPrimesToN {
     }
 
     static void printTwinPrime(int inf, int n){
-
         Map<Integer, TwinPrime> map = new HashMap<Integer, TwinPrime>();
         boolean prime[] = new boolean[n + 1];
         TwinPrime twinPrime = null;
