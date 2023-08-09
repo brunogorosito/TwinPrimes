@@ -26,9 +26,11 @@ class TwinPrimesToN {
         TwinPrime twinPrime = null;
         int aux = 1;
 
+        //Inicializo los indices en true
         for (int i = 0; i <= n; i++)
             prime[i] = true;
 
+        //Quito todos los primos múltiplos de 2
         for (int p = 2; p * p <= n; p++) {
             if (prime[p] == true) {
                 for (int i = p * 2; i <= n; i += p)
@@ -36,6 +38,7 @@ class TwinPrimesToN {
             }
         }
 
+        //Agrego al map todos los nuevos primos encontrados
         for (int i = inf; i <= n - 2; i++) {
             if (prime[i] == true && prime[i + 2] == true){
                 twinPrime = new TwinPrime(aux,i,(i+2));
@@ -44,12 +47,15 @@ class TwinPrimesToN {
             }
         }
 
+        //Cálculo de cadencias
+
         Integer index = aux;
         aux = 1;
         List<Integer> cadencia = new ArrayList<Integer>();
         int twinAux1;
         int twinAux2;
 
+        //Recorro el map para imprimir cadencias y números primos encontrados
         for(TwinPrime twin : map.values()){
             if(twin.getId() != index-1)
                 System.out.print(twin + ", ");
@@ -64,16 +70,21 @@ class TwinPrimesToN {
             aux++;
         }
 
+        //Inicializo la variable para la mayor cadencia
         Integer mayor = cadencia.get(0);
 
+        //Busco la mayor cadencia dentro del resultado
         for(int i=0; i < cadencia.size();i++){
             if(cadencia.get(i) > mayor) {
                 mayor = cadencia.get(i);
             }
         }
 
-        System.out.print("\n"+"La cantidad de números primos gemélos en el entorno "+"["+ inf + ","+n + "]" +" es: "+(aux-1));
+        //Imprimo la cantidad de pares números primos gemelos y la mayor cadencia encontrada
+        System.out.print("\n"+"La cantidad de pares números primos gemélos en el entorno "+"["+ inf + ","+n + "]" +" es: "+(aux-1));
         System.out.print("\n"+"La mayor distancia entre los primos gemelos es: " + mayor);
+        System.out.print(cadencia.toString());
+
 
     }
 
